@@ -54,3 +54,12 @@ def file_mode(filename: str):
     except ValueError:
         print("Error. invalid file format", file=sys.stdout)
         sys.exit(1)
+
+if __name__ == "__main__":
+    if len(sys.argv) == 1:
+        interactive_mode()
+    elif len(sys.argv) == 2:
+        file_mode(sys.argv[1])
+    else:
+        print("Usage: python quadratic_solver.py [filename]", file=sys.stdout)
+        sys.exit(1)
