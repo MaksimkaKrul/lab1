@@ -42,7 +42,15 @@ def interactive_mode():
     c = float(input("c = "))
     solve_quadratic(a, b, c)
 
-
-if __name__ == "__main__":
-    if len(sys.argv) == 1:
-        interactive_mode()
+def file_mode(filename: str):
+    try:
+        with open(filename, 'r') as file:
+            data = file.read().strip()
+            a, b, c = map(float, data.split())
+            solve_quadratic(a, b, c)
+    except FileNotFoundError:
+        print(f"Error. file {filename} does not exist", file=sys.stdout)
+        sys.exit(1)
+    except ValueError:
+        print("Error. invalid file format", file=sys.stdout)
+        sys.exit(1)
