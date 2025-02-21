@@ -1,10 +1,6 @@
 import sys, math, cmath
 
 def solve_quadratic(a: float, b: float, c: float):
-    if a == 0:
-        print("Error. a cannot be 0", file=sys.stdout)
-        sys.exit(1)
-
     discriminant = (b ** 2) - (4 * a * c)
 
     print(f"Solving equation: {a}x^2 + {b}x + {c} = 0")
