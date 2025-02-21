@@ -27,3 +27,22 @@ def solve_quadratic(a: float, b: float, c: float):
         x2 = (-b - squared_d) / (2 * a)
         print("There are 2 complex roots:")
         print(f"x1 = {x1}, x2 = {x2}")
+
+def interactive_mode():
+    while True:
+        try:
+            a = float(input("a = "))
+            if a == 0:
+                raise ValueError("a cannot be 0")
+            break
+        except ValueError as e:
+            print(f"Error. Expected a valid real number, got {e}")
+
+    b = float(input("b = "))
+    c = float(input("c = "))
+    solve_quadratic(a, b, c)
+
+
+if __name__ == "__main__":
+    if len(sys.argv) == 1:
+        interactive_mode()
